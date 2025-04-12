@@ -1,4 +1,4 @@
-# 42_philosophers
+# philosophers
 
 <p align="center">
     <img src="https://github.com/alx-sch/42_philosophers/blob/main/.assets/philosophers_badge.png" alt="philosophers_badge.png" />
