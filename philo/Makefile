@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: aschenk <aschenk@student.42berlin.de>      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/03 14:29:17 by aschenk           #+#    #+#              #
-#    Updated: 2024/10/13 18:26:58 by aschenk          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # Fancy up the simulation printout with emojis and additional information bymak
 # using non-zero values during compilation, e.g. 'make FANCY=1'.
 FANCY ?=		0
