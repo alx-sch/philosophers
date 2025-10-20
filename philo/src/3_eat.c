@@ -141,7 +141,7 @@ int	eat_and_log(t_philo *philo, int t_eat)
 		return (1);
 	}
 	if (mtx_action(&philo->mtx_last_meal, UNLOCK, philo->sim)
-		|| print_action(0, philo, EAT, 1) || precise_wait(t_eat))
+		|| print_action(0, philo, EAT, 1) || precise_wait(t_eat, philo))
 	{
 		drop_forks(philo);
 		return (1);

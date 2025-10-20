@@ -10,7 +10,7 @@ philosophers simulation.
 t_ull	get_time(void);
 int		set_start_time(t_sim *sim);
 int		record_time_of_death(t_philo *philo);
-int		precise_wait(int duration_to_wait);
+int		precise_wait(int duration_to_wait, t_philo *philo);
 
 /**
 Get the current time in milliseconds since the epoch (January 1, 1970).
@@ -98,27 +98,25 @@ mitigating such limitations.
 The `SLEEP_INTERVALS` constant is defined in `philo.h`.
 
  @param	duration_to_wait 	Duration in milliseconds for which to wait.
- @param	sim 				Pointer to a data struct to be freed
- 							in case of error.
+ @param	philo 				Pointer to the philosopher structure; used to check
+							if the simulation should stop (if some philo died).
 
  @return					`0` if the wait was successful;
 							`1` if there was an error retrieving the time.
 */
-int	precise_wait(int duration_to_wait)
+int	precise_wait(int duration_to_wait, t_philo *philo)
 {
-	t_ull	time_stop_waiting;
+	t_ull	end_time;
 	t_ull	current_time;
 
-	time_stop_waiting = get_time();
-	if (time_stop_waiting == 0)
-		return (1);
-	time_stop_waiting += duration_to_wait;
-	while (1)
+	end_time = get_time() + duration_to_wait;
+	current_time = get_time();
+	while (current_time < end_time)
 	{
+		if (stop_sim(philo) != 0) // Check if another philo died
+			break ;
 		current_time = get_time();
-		if (current_time == 0)
-			return (1);
-		if (current_time >= time_stop_waiting)
+		if (current_time >= end_time)
 			break ;
 		(void)usleep((duration_to_wait * 1000) / SLEEP_INTERVALS);
 	}

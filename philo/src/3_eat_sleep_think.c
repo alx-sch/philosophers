@@ -10,6 +10,7 @@ reaches the maximum number of meals.
 // IN FILE:
 
 void	*eat_sleep_think(void *arg);
+int		stop_sim(t_philo *philo);
 
 /**
 Checks whether a philo thread should stop by accessing the `stop_sim` flag.
@@ -21,7 +22,7 @@ Checks whether a philo thread should stop by accessing the `stop_sim` flag.
 				`1` if a philosopher has died (simulation should stop);
 				`2` if there is an error in mutex (un)locking.
 */
-static int	stop_sim(t_philo *philo)
+int	stop_sim(t_philo *philo)
 {
 	int		dead;
 
@@ -73,7 +74,7 @@ static int	sleep_and_log(t_philo *philo, int t_sleep)
 {
 	if (print_action(0, philo, SLEEP, 1))
 		return (1);
-	if (precise_wait(t_sleep))
+	if (precise_wait(t_sleep, philo))
 		return (1);
 	return (0);
 }
@@ -92,7 +93,7 @@ static int	think_and_log(t_philo *philo, int t_think)
 {
 	if (print_action(0, philo, THINK, 1))
 		return (1);
-	if (precise_wait(t_think * ALTRUISM_FACTOR))
+	if (precise_wait(t_think * ALTRUISM_FACTOR, philo))
 		return (1);
 	return (0);
 }

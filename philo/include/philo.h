@@ -87,6 +87,7 @@ int		is_philo_full(t_philo *philo, int max_meals);
 // 3_eat_sleep_think.c
 
 void	*eat_sleep_think(void *arg);
+int		stop_sim(t_philo *philo);
 
 // 4_monitor.c
 
@@ -125,7 +126,7 @@ int		mtx_action(t_mtx *mutex, t_mtx_action action, t_sim *sim);
 t_ull	get_time(void);
 int		set_start_time(t_sim *sim);
 int		record_time_of_death(t_philo *philo);
-int		precise_wait(int duration_to_wait);
+int		precise_wait(int duration_to_wait, t_philo *philo);
 
 // utils/4_free.c
 

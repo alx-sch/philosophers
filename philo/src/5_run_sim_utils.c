@@ -27,14 +27,14 @@ int	simulate_single_philo(t_sim *sim)
 	if (FANCY == 0)
 	{
 		(void)printf("0\t1\thas taken their fork\n");
-		if (precise_wait(t_die))
+		if (precise_wait(t_die, NULL))
 			return (1);
 		(void)printf(ERR_COLOR"%d\t1\tdied\n"RESET, t_die);
 	}
 	else
 	{
 		(void)printf("0\t1\t🥄←\thas taken their fork\t(1) left\n");
-		if (precise_wait(t_die))
+		if (precise_wait(t_die, NULL))
 			return (1);
 		(void)printf(ERR_COLOR"%d\t1\t💀\tdied\n"RESET, t_die);
 	}
