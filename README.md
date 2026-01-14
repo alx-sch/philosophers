@@ -1,7 +1,7 @@
 # philosophers
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/alx-sch/philosophers/refs/heads/main/.assets/philosophers_badge.png" alt="philosophers_badge.png" />
+    <img src=".assets/philosophers_badge.png" alt="philosophers_badge.png" />
 </p>
 
 ## Fancy Printing
@@ -9,7 +9,7 @@
 Add some flair to the philosopher's dinner by enabling additional visualization and simulation details.   
 Compile with `make FANCY=1` to activate this feature.
 
-<img src="https://raw.githubusercontent.com/alx-sch/philosophers/refs/heads/main/.assets/fancy_printing.png" alt="fancy_printing.png" width="450" />
+<img src=".assets/fancy_printing.png" alt="fancy_printing.png" width="450" />
 
 ## Synchronization and Thinking Time
 
@@ -70,7 +70,7 @@ cc test_usleep.c -lm -o test_usleep
 ./test_usleep 300000 100000 100
 ```
 
-<img src="https://raw.githubusercontent.com/alx-sch/philosophers/refs/heads/main/.assets/usleep_test_run.png" alt="usleep_test_run.png" width="400" />
+<img src=".assets/usleep_test_run.png" alt="usleep_test_run.png" width="400" />
 
 ### Why a Custom Wait Function?
 In real-time simulations, precise timing is crucial, as even small inaccuracies can lead to undesired behavior, especially when multiple threads interact and delays accumulate. The standard `usleep()` function may introduce unexpected delays because of how the operating system handles process scheduling, resulting in less precise timing.
